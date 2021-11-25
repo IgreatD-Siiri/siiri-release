@@ -9,6 +9,9 @@ cd release/.vuepress/dist
 # 如果是发布到自定义域名
 # echo 'www.example.com' > CNAME
 
+git config user.email "dinglei0916@outlook.com"
+git config user.name "dinglei"
+
 git init
 git add -A
 git commit -m 'deploy'
