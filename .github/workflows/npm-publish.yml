@@ -31,11 +31,3 @@ jobs:
         with:
           branch: gh-pages
           folder: release/.vuepress/dist
-
-      - name: publish
-        run: |
-          cd release/.vuepress/dist
-          git init
-          git add -A
-          git commit -m "deploy"
-          git push -f git@github.com:IgreatD-Siiri/siiri-release.git master:gh-pages
