@@ -10,6 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: npm ci
-      - run: npm run docs:build
-      - run: npm publish
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: build and publish
+        run: |
+          npm install
+          npm run docs:build
+          npm publish
