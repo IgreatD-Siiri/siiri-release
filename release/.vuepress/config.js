@@ -19,6 +19,10 @@ module.exports = {
         path: "/BMCS/", // 可选的, 标题的跳转链接，应为绝对路径且必须存在
         collapsable: false, // 可选的, 默认值是 true,
         sidebarDepth: 2, // 可选的, 默认值是 1
+        children: [
+          { title: "生产", path: "/BMCS/release/" },
+          { title: "测试", path: "/BMCS/test/" },
+        ],
       },
       {
         title: "EPCM", // 必要的
@@ -28,4 +32,19 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    [
+      "@vuepress/last-updated",
+      {
+        transformer: (timestamp) => {
+          const dayjs = require("dayjs");
+          const relativeTime = require("dayjs/plugin/relativeTime");
+          require("dayjs/locale/zh-cn");
+          dayjs.extend(relativeTime);
+          dayjs.locale("zh-cn");
+          return dayjs(timestamp).fromNow();
+        },
+      },
+    ],
+  ],
 };
