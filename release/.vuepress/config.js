@@ -1,4 +1,5 @@
 module.exports = {
+  base: "/siiri-release/",
   title: "移动端更新日志",
   themeConfig: {
     logo: "/logo.png",
