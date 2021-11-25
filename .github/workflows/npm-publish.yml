@@ -13,8 +13,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: build and publish
+      - name: build
         run: |
           npm install
           npm run docs:build
-          npm publish
+
+      - name: publish
+        run: |
+          npm run deploy
