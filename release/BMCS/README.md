@@ -2,5 +2,5 @@
 
 ### 环境
 
-- [测试](/BMCS/release/)
-- [生产](/EPCM/release/)
+- [生产](/BMCS/release/)
+- [测试](/BMCS/test/)
