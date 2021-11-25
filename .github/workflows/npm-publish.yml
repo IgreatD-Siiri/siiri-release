@@ -12,12 +12,28 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
 
       - name: build
         run: |
           npm install
           npm run docs:build
 
-      - name: publish
+      - name: token
         run: |
-          npm run deploy
+          git config --local user.email "dinglei0916@outlook.com"
+          git config --local user.name "dinglei"
+
+      - name: publish
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+        run: |
+          cd release/.vuepress/dist
+          git init
+          git add -A
+          git commit -m "deploy"
+          git push -f git@github.com:IgreatD-Siiri/siiri-release.git master:gh-pages
