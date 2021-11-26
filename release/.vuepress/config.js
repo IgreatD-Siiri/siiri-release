@@ -36,13 +36,10 @@ module.exports = {
     [
       "@vuepress/last-updated",
       {
-        transformer: (timestamp) => {
-          const dayjs = require("dayjs");
-          const relativeTime = require("dayjs/plugin/relativeTime");
-          require("dayjs/locale/zh-cn");
-          dayjs.extend(relativeTime);
-          dayjs.locale("zh-cn");
-          return dayjs(timestamp).fromNow();
+        transformer: (timestamp, lang) => {
+          const moment = require("moment");
+          moment.locale(lang);
+          return moment(timestamp).fromNow();
         },
       },
     ],
