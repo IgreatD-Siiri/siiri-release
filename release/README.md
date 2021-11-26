@@ -2,5 +2,5 @@
 
 ### 项目
 
-- [BMCS](/BMCS/)
-- [EPCM](/EPCM/)
+- [BMCS](./BMCS/)
+- [EPCM](./EPCM/)
